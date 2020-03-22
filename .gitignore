@@ -1,3 +1,5 @@
 .idea/
-sim
-sim.o
+multicycle_sim
+multicycle_sim.o
+singlecycle_sim
+singlecycle_sim.o

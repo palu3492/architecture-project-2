@@ -1,10 +1,10 @@
 CC=gcc
 
-all: sim.o
-	$(CC) sim.o -o sim
+all: multicycle_sim.o
+	$(CC) multicycle_sim.o -o multicycle_sim
 	
-sim: sim.c
-	$(CC) sim.c -c sim.o
+sim: multicycle_sim.c
+	$(CC) multicycle_sim.c -c multicycle_sim.o
 	
 clean:
-	rm sim.o sim
+	rm multicycle_sim.o multicycle_sim

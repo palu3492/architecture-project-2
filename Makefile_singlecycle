@@ -1,0 +1,10 @@
+CC=gcc
+
+all: singlecycle_sim.o
+	$(CC) singlecycle_sim.o -o singlecycle_sim
+
+sim: singlecycle_sim.c
+	$(CC) singlecycle_sim.c -c singlecycle_sim.o
+
+clean:
+	rm singlecycle_sim.o singlecycle_sim
