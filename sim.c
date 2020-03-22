@@ -84,10 +84,10 @@ void run(statetype* state){
 	while(1){
 		total_instrs++;
 
-		printstate(state);
+		// printstate(state);
 
 		// Instruction Fetch
-		instr = state->mem[state->pc];
+		instr = state->mem[state->pc]; // mem holds decimal version of line
 
 		/* check for halt */
 		if (opcode(instr) == HALT) {
@@ -99,7 +99,7 @@ void run(statetype* state){
 		state->pc = state->pc+1;
 
 		// Set reg A and B
-		regA = state->reg[field0(instr)];
+		regA = state->reg[field0(instr)]; // field 0 is register number, state-reg gets value from that register
 		regB = state->reg[field1(instr)];
 
 		// Set sign extended offset
@@ -158,7 +158,7 @@ void run(statetype* state){
 			}
 		}	
 	} // While
-	print_stats(total_instrs);
+	// print_stats(total_instrs);
 }
 
 int main(int argc, char** argv){
