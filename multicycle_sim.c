@@ -77,14 +77,15 @@ void run(statetype* state){
 	int offset = 0;
 	int branchtarget = 0;
 	int aluresult = 0;
-
+    // Totals
 	int total_instrs = 0;
+	int total_cycles = 0;
 
 	// Primary loop
 	while(1){
 		total_instrs++;
 
-		// printstate(state);
+		printstate(state);
 
 		// Instruction Fetch
 		instr = state->mem[state->pc]; // mem holds decimal version of line
@@ -92,6 +93,8 @@ void run(statetype* state){
 		/* check for halt */
 		if (opcode(instr) == HALT) {
 			printf("machine halted\n");
+            // HALT requires 1 cycle
+            total_cycles += 1;
 			break;
 		}
 
@@ -106,6 +109,7 @@ void run(statetype* state){
 		offset = signextend(field2(instr));
 
 		// Branch target gets set regardless of instruction
+		// Only used for branching
 		branchtarget = state->pc + offset;
 
 		/**
@@ -119,6 +123,8 @@ void run(statetype* state){
 			aluresult = regA + regB;
 			// Save result
 			state->reg[field2(instr)] = aluresult;
+			// ADD requires 2 cycles
+            total_cycles += 2;
 		}
 		// NAND
 		else if(opcode(instr) == NAND){
@@ -126,6 +132,8 @@ void run(statetype* state){
 			aluresult = ~(regA & regB);
 			// Save result
 			state->reg[field2(instr)] = aluresult;
+            // NAND requires 2 cycles
+            total_cycles += 2;
 		}
 		// LW or SW
 		else if(opcode(instr) == LW || opcode(instr) == SW){
@@ -138,6 +146,8 @@ void run(statetype* state){
 				// Store
 				state->mem[aluresult] = regA;
 			}
+            // LW and SW each require 2 cycles
+            total_cycles += 8;
 		}
 		// JALR
 		else if(opcode(instr) == JALR){
@@ -145,6 +155,8 @@ void run(statetype* state){
 			state->reg[field0(instr)] = state->pc;
 			//Jump to the address in regB;
 			state->pc = state->reg[field1(instr)];
+            // JALR requires 1 cycle
+            total_cycles += 1;
 		}
 		// BEQ
 		else if(opcode(instr) == BEQ){
@@ -156,9 +168,16 @@ void run(statetype* state){
 				// branch
 				state->pc = branchtarget;
 			}
-		}	
+            // BEQ requires 4 cycles
+            total_cycles += 4;
+		}
+        // NOOP
+        else if(opcode(instr) == NOOP){
+            // NOOP requires 1 cycle
+            total_cycles += 1;
+        }
 	} // While
-	// print_stats(total_instrs);
+	print_stats(total_instrs);
 }
 
 int main(int argc, char** argv){

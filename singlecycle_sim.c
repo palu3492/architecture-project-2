@@ -84,7 +84,7 @@ void run(statetype* state){
 	while(1){
 		total_instrs++;
 
-		// printstate(state);
+		printstate(state);
 
 		// Instruction Fetch
 		instr = state->mem[state->pc]; // mem holds decimal version of line
@@ -158,7 +158,7 @@ void run(statetype* state){
 			}
 		}	
 	} // While
-	// print_stats(total_instrs);
+	print_stats(total_instrs);
 }
 
 int main(int argc, char** argv){
