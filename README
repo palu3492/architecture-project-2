@@ -1,1 +1,8 @@
  A README file with instructions and explanations of files
+
+
+ benchmarks - assembly files used to benchmark the simulator
+    - test1_add_nand.asm
+    - test2_lw_sw.asm
+    - test3_beq.asm
+    - test4_jalr.asm

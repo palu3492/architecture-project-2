@@ -1,10 +1,15 @@
- lw 1 0 five # load reg1 with 5 (symbolic address)
- lw 2 1 3 # load reg2 with -1 (numeric address)
-start add 1 2 1 # decrement reg1
- beq 0 1 2 # goto end of program when reg1==0
+ lw 1 0 one # load reg1 with 1
+ lw 2 0 limit # load reg2 with 100
+ lw 3 0 zero # load reg3 with 0
+start add 3 1 3 # var ++
+ lw 4 0 value
+ lw 5 0 value
+ sw 4 0 value
+ sw 5 0 value
+ beq 2 3 end # if equal limit then end
  beq 0 0 start # go back to the beginning of the loop
- noop
-done halt # end of program
-five .fill 5
-neg1 .fill -1
-stAdd .fill start # will contain the address of start (2)
+end halt
+limit .fill 100
+one .fill 1
+zero .fill 0
+value .fill 99 # random value to load and store
