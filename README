@@ -1,8 +1,15 @@
- A README file with instructions and explanations of files
+Instructions:
+Compile using the make command
+Clean using the make clean command
+Execute using the command ./sim program.mc
 
-
- benchmarks - assembly files used to benchmark the simulator
-    - test1_add_nand.asm
-    - test2_lw_sw.asm
-    - test3_beq.asm
-    - test4_jalr.asm
+Explanations of files:
+sim.c - multi-cycle simulator C code
+Makefile - compile code and clean directory
+benchmarks/ - directory of UST-3400 assembly language programs for benchmarking the performance of the simulator
+    - test1_add_nand.asm - runs hundreds of add and nand instructions
+    - test2_lw_sw.asm - runs hundreds of lw and sw instructions
+    - test3_beq.asm - runs hundreds of beqs instructions
+    - test4_jalr_.asm - runs hundreds jalr instructions
+multicycle_sim_overview.pdf - explains how the multic-ycle simulator works
+performance_analysis.pdf - outlines the results of the benchmark suite and the performance of the multi-cycle simulator

@@ -5,10 +5,10 @@ start add 3 1 3 # var ++
  beq 0 0 n1
 n1 beq 0 0 n2
 n2 beq 0 0 n3
-n3 beq 2 3 end # if equal limit then end
+n3 beq 0 0 n4
+n4 beq 2 3 end # if equal limit then end
  beq 0 0 start # go back to the beginning of the loop
 end halt
 limit .fill 100
 one .fill 1
 zero .fill 0
-value .fill 99 # random value to load and store
