@@ -1,0 +1,22 @@
+One document (pdf) outlining the results of the test suite and the performance of the
+multi-cycle design relative to the single-cycle design.
+
+There is no point to the benchmark suite without some analysis. Once you have developed your
+benchmark suite you should run it on both your single-cycle and multicycle designs and record the
+number of cycles executed in each test. You should then write up a 3-4 page document (double
+spaced) outlining the performance of the multicycle machine relative to the single-cycle machine. It is
+important to compare your experimental results to theoretically predicated behavior. Make sure to
+detail what equations you use (and those equations should be nicely formatted). NOTE: You may
+assume the clock in the single-cycle design is 9 times slower than the clock in multicycle design.
+
+The best way to debug your programs is to generate your own test cases, figure out the correct answers
+by hand, and compare your program's output to the correct answers. This is also one of the best ways to
+learn the concepts in the project.
+
+Your benchmark suite will be graded according to how thoroughly its tests the UST-3400 simulators.
+
+
+
+
+
+This is a document on Google Docs

@@ -64,8 +64,10 @@ int signextend(int num){
 	return num;
 }
 
-void print_stats(int n_instrs){
-	printf("INSTRUCTIONS: %d\n", n_instrs);
+void print_stats(int n_instrs, int n_cycles){
+	printf("INSTRUCTIONS: %d\n", n_instrs); // total executed instructions
+	// Print the total number of cycles executed
+    printf("CYCLES: %d\n", n_cycles); // total executed cycles
 }
 
 void run(statetype* state){
@@ -177,7 +179,7 @@ void run(statetype* state){
             total_cycles += 1;
         }
 	} // While
-	print_stats(total_instrs);
+	print_stats(total_instrs, total_cycles);
 }
 
 int main(int argc, char** argv){
